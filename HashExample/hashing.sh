@@ -18,14 +18,21 @@ STR="I suppose this file is important. Perhaps. Perhaps not."
 
 echo $STR > important.txt
 
-#hash the file and capture the hash number
+# Hash the file and capture the hash number
 HASH=$(echo -n important.txt | md5)
 echo $HASH
-#rehast the file and capture the hash number
+
+# Re-hash the file and capture the hash number
 HASH2=$(echo -n important.txt | md5)
 echo $HASH2
+
+# Compare the two hashes
 if [ $HASH == $HASH2 ]; then
    echo "We hashed the file twice and the hashes match!"
 else
    echo "We hashed the file twice, and the hashes don't match!"
 fi 
+
+# Citing sources:
+# https://gcgapremium.com/creating-comparing-hashes/
+# https://www.garron.me/en/bits/how-to-md5sum-mac-os-x.html
